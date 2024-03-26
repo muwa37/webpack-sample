@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './App.scss';
 
 export const App = () => {
   const [count, setCount] = useState<number>(0);
@@ -10,9 +11,13 @@ export const App = () => {
     <div>
       <h1>hello world</h1>
       <div>
-        <button onClick={decrementCount}>-</button>
+        <button onClick={decrementCount}>
+          -<span>decrease</span>
+        </button>
         <h2>{count}</h2>
-        <button onClick={incrementCount}>+</button>
+        <button onClick={incrementCount}>
+          +<span>increase</span>
+        </button>
       </div>
     </div>
   );
