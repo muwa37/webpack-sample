@@ -1,3 +1,7 @@
+import catJpg from '@/assets/catJpg.jpg';
+import catPng from '@/assets/catPng.png';
+import CatSvg from '@/assets/catSvg.svg';
+
 import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import classes from './App.module.scss';
@@ -11,6 +15,20 @@ export const App = () => {
   return (
     <div>
       <h1>hello world</h1>
+      <div>
+        <div>
+          {catPng}
+          <img width={100} height={100} src={catPng} alt='' />
+        </div>
+        <div>
+          {catJpg}
+          <img width={100} height={100} src={catJpg} alt='' />
+        </div>
+      </div>
+
+      <div>
+        <CatSvg className={classes.icon} width={50} height={50} />
+      </div>
       <div>
         <button className={classes.button} onClick={decrementCount}>
           -<span>decrease</span>

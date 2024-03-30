@@ -1,9 +1,9 @@
+import { App } from '@/components/App';
+import { About } from '@/pages/About';
+import { Posts } from '@/pages/Posts';
 import { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { App } from './components/App';
-import { About } from './pages/About';
-import { Posts } from './pages/Posts';
 
 const root = document.getElementById('root');
 
