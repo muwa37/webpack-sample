@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import classes from './App.module.scss';
 
 export const App = () => {
@@ -19,6 +20,15 @@ export const App = () => {
           +<span>increase</span>
         </button>
       </div>
+      <ul>
+        <li>
+          <Link to='/about'>about</Link>
+        </li>
+        <li>
+          <Link to='/posts'>posts</Link>
+        </li>
+      </ul>
+      <Outlet />
     </div>
   );
 };
