@@ -6,6 +6,13 @@ import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import classes from './App.module.scss';
 
+function throwSampleError() {
+  throw new Error('sample error');
+}
+function callFuncWithError() {
+  throwSampleError();
+}
+
 function threeShaking() {
   console.log('this function wont be in bundle');
 }
@@ -15,6 +22,8 @@ export const App = () => {
 
   const incrementCount = () => setCount(count + 1);
   const decrementCount = () => setCount(count - 1);
+
+  const errorClickHandler = () => callFuncWithError();
 
   if (__PLATFORM__ === 'desktop') {
     console.log('app is on desktop platform');
@@ -29,7 +38,7 @@ export const App = () => {
   }
 
   return (
-    <div>
+    <div data-testid={'App.DataTestId'}>
       <h1>hello world</h1>
       <div>
         <div>
@@ -53,7 +62,10 @@ export const App = () => {
           +<span>inc</span>
         </button>
       </div>
-      <h3>env platform: {__PLATFORM__}</h3>
+      <div>
+        <button onClick={errorClickHandler}>throw error</button>
+      </div>
+      <h3 data-testid={'Platform.DataTestId'}>env platform: {__PLATFORM__}</h3>
       <ul>
         <li>
           <Link to='/about'>about</Link>
