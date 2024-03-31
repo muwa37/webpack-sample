@@ -50,10 +50,18 @@ export function buildLoaders({ mode }: BuildOptions): ModuleOptions['rules'] {
       'sass-loader',
     ],
   };
+
   const tsLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
     exclude: '/node_modules/',
+    test: /\.tsx?$/,
+    use: [
+      {
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true,
+        },
+      },
+    ],
   };
 
   return [svgrLoader, assetsLoader, scssLoader, tsLoader];
